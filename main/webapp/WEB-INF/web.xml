@@ -19,4 +19,14 @@
     <servlet-name>createMembre</servlet-name>
     <url-pattern>/createMembre</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReadMembre</display-name>
+    <servlet-name>ReadMembre</servlet-name>
+    <servlet-class>web.Membre.ReadMembre</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReadMembre</servlet-name>
+    <url-pattern>/ReadMembre</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -1,5 +1,6 @@
 package web.Membre;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -9,23 +10,22 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 import Dao.Membre.MembreDao;
-import Model.Membre;
 
 /**
- * Servlet implementation class createMembre
+ * Servlet implementation class ReadMembre
  */
-@WebServlet(name = "createMembre", urlPatterns = {"/createMembre"})
-public class createMembre extends HttpServlet {
+@WebServlet(name = "ReadMembre", urlPatterns = {"ReadMembre"})
+public class ReadMembre extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private MembreDao membredao;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public createMembre() {
-        super();       
+    public ReadMembre() {
+        super();
         membredao = new MembreDao();
-        
+        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -40,7 +40,9 @@ public class createMembre extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.setAttribute("membres", membredao.afficherProduits() );
+	    request.getRequestDispatcher("HomeMembre.jsp").forward(request, response);
 	}
 
 	/**
@@ -49,20 +51,6 @@ public class createMembre extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
-		
-		Membre membre = new Membre();
-		
-		membre.setNom(request.getParameter("nom"));
-		membre.setPrenom(request.getParameter("prenom"));
-		membre.setEmail(request.getParameter("email"));
-		membre.setPhone(request.getParameter("phone"));
-		membre.setCin(request.getParameter("cin"));
-		membre.setAdresse(request.getParameter("adresse"));
-		
-		membredao.ajouterMembre(membre);
-		
-		response.sendRedirect("HomeMembre.jsp");
-		
 	}
 
 }
