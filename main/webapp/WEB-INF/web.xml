@@ -29,4 +29,14 @@
     <servlet-name>ReadMembre</servlet-name>
     <url-pattern>/ReadMembre</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateMembre</display-name>
+    <servlet-name>UpdateMembre</servlet-name>
+    <servlet-class>web.Membre.UpdateMembre</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateMembre</servlet-name>
+    <url-pattern>/UpdateMembre</url-pattern>
+  </servlet-mapping>
 </web-app>

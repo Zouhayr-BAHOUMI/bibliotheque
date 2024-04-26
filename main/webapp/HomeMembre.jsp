@@ -24,7 +24,7 @@
   			  Membre complete CRUD Application
   	</nav>
   	<div class="container">
-  		<a href="" class="btn btn-dark mb-3">Ajouter une Membre</a>
+  		<a href="AjouterMembre.jsp" class="btn btn-dark mb-3">Ajouter une Membre</a>
   		
   		<table class="table table-hover text-center">
       <thead class="table-dark">
@@ -48,7 +48,7 @@
             <td><c:out value="${membre.cin}"/></td>
             <td><c:out value="${membre.adresse}"/></td>
             <td>
-              <a href="" ><i class="fa-solid fa-pen-to-square fs-5 me-3"></i></a>
+              <a href="UpdateMembre.jsp?id=${membre.id_membre}" ><i class="fa-solid fa-pen-to-square fs-5 me-3"></i></a>
               <a href="" ><i class="fa-solid fa-trash fs-5"></i></a>
             </td>
           </tr>
